@@ -24,11 +24,9 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
     private AppCompatButton detailsButton;
     private AppCompatButton shareButton;
 
-    //itemView est la vue correspondante à 1 cellule
     public MyViewHolder(View itemView) {
         super(itemView);
 
-        //c'est ici que l'on fait nos findView
 
         textItemTitle = (TextView) itemView.findViewById(R.id.item_title);
         textItemDesciotion = (TextView) itemView.findViewById(R.id.item_description);
@@ -37,7 +35,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
         shareButton = (AppCompatButton) itemView.findViewById(R.id.item_share_btn);
     }
 
-    //puis ajouter une fonction pour remplir la cellule en fonction d'un MyObject
+    //remplir la cellule en fonction de personnage
     public void bind(final Personnage myPersonnage){
         textItemTitle.setText(myPersonnage.getName());
         textItemDesciotion.setText(myPersonnage.getSerie());

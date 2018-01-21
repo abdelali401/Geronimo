@@ -2,7 +2,9 @@ package iferden.geronimo.geronimo.Model;
 
 /**
  * Created by abdelaliiferden on 21/01/2018.
+ * Le modele de notre personnage
  */
+
 
 public class Personnage {
     private String name;

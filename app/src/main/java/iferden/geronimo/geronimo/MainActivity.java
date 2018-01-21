@@ -24,19 +24,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //remplir la ville
+        //remplir la liste des personnages
         ajouterPersonnages();
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
-        //définit l'agencement des cellules, ici de façon verticale, comme une ListView
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        //pour adapter en grille comme une RecyclerView, avec 2 cellules par ligne
-        //recyclerView.setLayoutManager(new GridLayoutManager(this,2));
 
-        //puis créer un MyAdapter, lui fournir notre liste de villes.
-        //cet adapter servira à remplir notre recyclerview
+        //cet adapter servira à remplir recyclerview
         myAdapter = new MyAdapter(personnagesList);
         recyclerView.setAdapter(myAdapter);
     }
@@ -44,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private void ajouterPersonnages() {
         personnagesList.add(new Personnage("The king of the north","Game of thrones",R.drawable.game_of_thrones));
         personnagesList.add(new Personnage("The King Ragnar","Vikings",R.drawable.vikings));
+        personnagesList.add(new Personnage("Schofield","Prison break",R.drawable.prison_break));
 
     }
 
@@ -55,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add:
-                // User chose the "Settings" item, show the app settings UI...
+                // Le button Add permet d'ajouter un personnage dans la liste
                 personnagesList.add(new Personnage("The king of the north","Game of thrones",R.drawable.game_of_thrones));
                 if(personnagesList.size()>1)
                     myAdapter.notifyItemInserted(1);
@@ -64,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_remove:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
+                // Le button Remove permet de retirer un personnage de la liste
+
                 if(personnagesList.size()>0)
                 {
                     personnagesList.remove(0);
@@ -74,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }

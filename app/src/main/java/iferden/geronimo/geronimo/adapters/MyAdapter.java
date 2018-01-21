@@ -24,20 +24,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     }
 
     //cette fonction permet de créer les viewHolder
-    //et par la même indiquer la vue à inflater (à partir des layout xml)
+    //et par la même indiquer la vue à inflater
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int itemType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cell_card,viewGroup,false);
         return new MyViewHolder(view);
     }
 
-    //c'est ici que nous allons remplir notre cellule avec le texte/image de chaque MyObjects
+    //c'est ici que nous allons remplir notre cellule avec le infos de notre personnage
     @Override
     public void onBindViewHolder(MyViewHolder myViewHolder, int position) {
         Personnage myObject = list.get(position);
         myViewHolder.bind(myObject);
     }
 
+    //Le nombre de personnage
     @Override
     public int getItemCount() {
         return list.size();
